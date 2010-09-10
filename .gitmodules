@@ -1,0 +1,3 @@
+[submodule "android/RESTProvider"]
+	path = android/RESTProvider
+	url = git@github.com:novoda/RESTProvider.git
