@@ -1,5 +1,5 @@
-*/bin
-*/gen
+android/bookation/bin
+android/bookation/gen
 .classpath
 .project
 *.class
