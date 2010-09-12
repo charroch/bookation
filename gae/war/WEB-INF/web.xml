@@ -1,0 +1,100 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
+
+	<security-constraint>
+		<web-resource-collection>
+			<url-pattern>/cron/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>admin</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<security-constraint>
+		<web-resource-collection>
+			<url-pattern>/tasks/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>admin</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<security-constraint>
+		<web-resource-collection>
+			<url-pattern>/user.jsp</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>*</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+  <!-- ====================================
+		Task
+	 ==================================== -->
+    <servlet>
+		<servlet-name>keepAliveTask</servlet-name>
+		<servlet-class>org.appengine.commons.servlet.task.KeepAliveTask</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>keepAliveTask</servlet-name>
+		<url-pattern>/task/keepAliveTask</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>keepAliveQueue</servlet-name>
+		<servlet-class>org.appengine.commons.servlet.queue.KeepAliveQueue</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>keepAliveQueue</servlet-name>
+		<url-pattern>/queue/keepAliveQueue</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>editorRpcService</servlet-name>
+		<servlet-class>novoda.bookation.gae.server.servlet.EditorServiceImpl
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>editorRpcService</servlet-name>
+		<url-pattern>/editor/editorService</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>register</servlet-name>
+		<servlet-class>novoda.bookation.gae.server.servlet.Register
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>register</servlet-name>
+		<url-pattern>/register</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>deregister</servlet-name>
+		<servlet-class>novoda.bookation.gae.server.servlet.Deregister
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>deregister</servlet-name>
+		<url-pattern>/deregister</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>clag</servlet-name>
+		<servlet-class>novoda.clag.servlet.ClagServlet</servlet-class>
+		<!--
+			<init-param> <param-name>converter</param-name>
+			<param-value>novoda.clag.converter.json.SqliteJsonConverter</param-value>
+			</init-param>
+		-->
+		<init-param>
+			<param-name>contentClasses</param-name>
+			<param-value>novoda.bookation.gae.shared.Bookation</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>clag</servlet-name>
+		<url-pattern>/data/*</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
