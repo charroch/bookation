@@ -1,4 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Landing</string>
+	<string
+		name="app_name">Landing</string>
+	<string
+		name="enableNotificationsTitle">Enable notifications</string>
+	<string
+		name="enableNotificationsSummary">Enables or disables notifications notifications</string>
+	<string
+		name="locationTrackingCategoryTitle">Location Updates</string>
+	<string
+		name="locationTrackingTitle">Enable location updates</string>
+	<string
+		name="locationTrackingSummary">Sends location updates to the server for more relevant
+		notifications</string>
+	<string
+		name="locationTrackingFrequencyTitle">Usage frequency</string>
+	<string
+		name="locationTrackingFrequencySummary">Specify the number of minutes</string>
+	<string
+		name="gpsUsageCategoryTitle">GPS</string>
+	<string
+		name="gpsUsageTitle">Use GPS when available</string>
+	<string
+		name="gpsUsageSummary">Uses GPS when more accurate location updates are necessary
+	</string>
+	<string
+		name="gpsUsageFrequencyTitle">Usage frequency</string>
+	<string
+		name="gpsUsageFrequencySummary">Specify the number of minutes</string>
+	<!-- notification details screen -->
+	<string
+		name="settingsButtonLabel">Settings</string>
+	<string
+		name="iLikeButtonLabel">I Like</string>
+	<string
+		name="iDontLikeButtonLabel">I Don\'t Like</string>
+	<string
+		name="moreInfoButtonLabel">More Info</string>
+	<string
+		name="shareButtonLabel">Share / Save</string>
+	<string
+		name="mapButtonLabel">Map</string>
+	<string
+		name="shareNotificationDialogTitle">Share notification via</string>
 </resources>

@@ -1,15 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="novoda.bookation"
-      android:versionCode="1"
-      android:versionName="1.0">
-    <application android:label="@string/app_name" android:icon="@drawable/icon">
-        <activity android:name="Landing"
-                  android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
+<manifest
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	package="novoda.bookation"
+	android:versionCode="1"
+	android:versionName="1.0">
+	<application
+		android:label="@string/app_name"
+		android:icon="@drawable/icon">
+
+		<provider
+			android:name="novoda.rest.providers.RESTProvider"
+			android:authorities="novoda.bookation">
+			<meta-data
+				android:name="novoda.rest"
+				android:resource="@xml/description" />
+		</provider>
+
+		<!-- HttpService test -->
+		<service
+			android:name="novoda.rest.services.HttpServiceInvoker" />
+
+		<activity
+			android:name="Landing"
+			android:label="@string/app_name">
+			<intent-filter>
+				<action
+					android:name="android.intent.action.MAIN" />
+				<category
+					android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+
+		<!-- Xtify -->
+		<activity
+			android:name="com.xtify.android.sdk.SettingsActivity"
+			android:label="Settings">
+		</activity>
+		<activity
+			android:name="com.xtify.android.sdk.NotificationDetailsActivity"
+			android:label="Notification Details">
+		</activity>
+		<activity
+			android:name="com.xtify.android.sdk.NotificationSettingsActivity"
+			android:label="Notification Settings">
+		</activity>
+		<service
+			android:name="com.xtify.android.sdk.MainService"
+			android:label="Notifications Service">
+			<intent-filter>
+				<action
+					android:name="com.xtify.android.sdk.IMainService" />
+				<category
+					android:name="com.xtify.android.sdk.IMainService" />
+				<category
+					android:name="com.xtify.android.sdk.IMainService.V1040" />
+			</intent-filter>
+		</service>
+		<receiver
+			android:name="com.xtify.android.sdk.MainReceiver">
+			<intent-filter>
+				<action
+					android:name="com.xtify.android.sdk.SHOW_NOTIFICATION" />
+				<action
+					android:name="com.xtify.android.sdk.NOTIFICATION_CLICKED" />
+				<action
+					android:name="com.xtify.android.sdk.NOTIFICATION_CLEARED" />
+				<!-- MAKE SURE THE API KEY ON THE NEXT LINE IS PRECEDED BY A SLASH -->
+				<data
+					android:scheme="notif"
+					android:host="notification.xtify.com"
+					android:pathPrefix="/27d70c2b-4982-48f2-885e-e8230ba3df00" />
+			</intent-filter>
+			<intent-filter>
+				<action
+					android:name="android.intent.action.BOOT_COMPLETED" />
+				<action
+					android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+				<action
+					android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+				<action
+					android:name="com.xtify.android.sdk.SEND_SETTINGS" />
+			</intent-filter>
+			<intent-filter>
+				<action
+					android:name="android.intent.action.PACKAGE_ADDED" />
+				<action
+					android:name="android.intent.action.PACKAGE_REMOVED" />
+				<data
+					android:scheme="package" />
+			</intent-filter>
+		</receiver>
+		<meta-data
+			android:name="XTIFY_SDK_API_KEY"
+			android:value="27d70c2b-4982-48f2-885e-e8230ba3df00" />
+
+	</application>
+	<uses-permission
+		android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission
+		android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission
+		android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission
+		android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission
+		android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission
+		android:name="android.permission.INTERNET" />
+	<uses-permission
+		android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission
+		android:name="android.permission.CHANGE_WIFI_STATE" />
+	<uses-permission
+		android:name="android.permission.VIBRATE" />
 </manifest> 

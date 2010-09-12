@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service
+	xmlns:rest="http://novoda.github.com/RESTProvider/apk/res"
+	rest:endpoint="http://bookation.appspot.com/data/"
+	rest:clag="true"
+	rest:name="novoda.rest.services.HttpServiceInvoker">
+	<clag
+		rest:endpoint="http://bookation.appspot.com/data/" />
+</service>
