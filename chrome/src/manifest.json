@@ -1,0 +1,19 @@
+{
+  "name": "Bookation",
+  "version": "0.1.0",
+  "description": "Finds addresses in the web and share them with your phone",
+  "icons": { "128": "icon.png" },
+  "content_scripts": [
+    { "matches": ["http://*/*"], "js": ["contentscript.js"] }
+  ],
+  "permissions": [
+    "tabs",
+    "http://maps.google.com/*"
+  ],
+  "browser_action": {
+      "default_name": "Show locations of this page",
+      "default_icon": "marker.png",
+      "popup": "popup.html"
+  }, 
+  "background_page": "background.html"
+}

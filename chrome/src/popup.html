@@ -1,0 +1,22 @@
+<head>
+<style>
+body {
+  margin: 0px;
+  padding: 0px;
+}
+#map {
+  width: 512px;
+  height: 512px;
+}
+</style>
+<script type="text/javascript">
+function map() {
+  var address = chrome.extension.getBackgroundPage().selectedAddress;
+  if (address)
+    document.getElementById("address").value=address;
+};
+</script>
+</head>
+<body onload="map()">
+	Address: <input type="text" id="address"/>
+</body>
