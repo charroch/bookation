@@ -22,13 +22,13 @@ public class JdoBookationDao implements BookationDao {
 	protected PersistenceManager getPM() {
 		return PMF.get().getPersistenceManager();
 	}
-	
+
 	@Override
 	public Bookation get(Long id) {
 		if(id == null) {
             return null;
         }
-        return getPM().getObjectById(Bookation.class, id);	
+        return getPM().getObjectById(Bookation.class, id);
 	}
 
 	@Override
@@ -37,8 +37,8 @@ public class JdoBookationDao implements BookationDao {
         pm.currentTransaction().begin();
         try {
             Bookation bookation = get(toPersist.getId());
-            if(bookation != null) {            
-                toPersist.setId(bookation.getId());       
+            if(bookation != null) {
+                toPersist.setId(bookation.getId());
             } else {
             	toPersist.setCreated(new Date());
             }
@@ -49,14 +49,14 @@ public class JdoBookationDao implements BookationDao {
         } catch(JDOOptimisticVerificationException e) {
             log.severe("JDOOptimisticVerificationException " + e.getMessage());
             throw new RuntimeException("JDOOptimisticVerificationException", e);
-        } finally {      
+        } finally {
             if (pm.currentTransaction().isActive()) {
                 pm.currentTransaction().rollback();
             }
             pm.close();
         }
 	}
-	
+
 	@Override
 	@SuppressWarnings("unchecked")
 	public List<BookationMarker> get(String account) {
@@ -78,5 +78,5 @@ public class JdoBookationDao implements BookationDao {
 	        query.closeAll();
 	    }
 	}
-	
+
 }

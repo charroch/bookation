@@ -7,13 +7,13 @@ public class BookationMarker implements Serializable {
 	private static final long serialVersionUID = 1L;
 
     private Double latitude;
-    
+
     private Double longitude;
-    
+
     public BookationMarker() {
-    	
+
     }
-    
+
     public BookationMarker(Double latitude, Double longitude) {
     	this.latitude = latitude;
     	this.longitude = longitude;

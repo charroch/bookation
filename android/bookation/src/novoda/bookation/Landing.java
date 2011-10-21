@@ -25,7 +25,7 @@ public class Landing extends Activity {
         Context context = this;
         final PersistentLocationManager persistentLocationManager = new PersistentLocationManager(
                 context);
-        
+
         Thread xtifyThread = new Thread(new Runnable() {
             @Override
             public void run() {

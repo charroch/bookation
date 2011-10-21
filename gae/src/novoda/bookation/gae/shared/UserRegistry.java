@@ -7,14 +7,14 @@ import javax.jdo.annotations.PrimaryKey;
 
 @PersistenceCapable
 public class UserRegistry {
-	
+
 	@PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	private Long id;
-	
+
 	@Persistent
 	private String account;
-	
+
 	@Persistent
 	private String xtifyId;
 

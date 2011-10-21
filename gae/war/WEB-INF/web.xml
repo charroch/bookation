@@ -36,7 +36,7 @@
 		<servlet-name>keepAliveTask</servlet-name>
 		<url-pattern>/task/keepAliveTask</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>keepAliveQueue</servlet-name>
 		<servlet-class>org.appengine.commons.servlet.queue.KeepAliveQueue</servlet-class>
@@ -55,7 +55,7 @@
 		<servlet-name>editorRpcService</servlet-name>
 		<url-pattern>/editor/editorService</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>register</servlet-name>
 		<servlet-class>novoda.bookation.gae.server.servlet.Register
@@ -65,7 +65,7 @@
 		<servlet-name>register</servlet-name>
 		<url-pattern>/register</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>deregister</servlet-name>
 		<servlet-class>novoda.bookation.gae.server.servlet.Deregister
