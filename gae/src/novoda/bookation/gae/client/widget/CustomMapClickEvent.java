@@ -8,7 +8,7 @@ public class CustomMapClickEvent extends GwtEvent<CustomMapClickHandler> {
 	public static final GwtEvent.Type<CustomMapClickHandler> TYPE = new GwtEvent.Type<CustomMapClickHandler>();
 
 	private double longitude;
-	
+
 	private double latitude;
 
 	public CustomMapClickEvent(LatLng latLng) {
@@ -25,11 +25,11 @@ public class CustomMapClickEvent extends GwtEvent<CustomMapClickHandler> {
 	public com.google.gwt.event.shared.GwtEvent.Type<CustomMapClickHandler> getAssociatedType() {
 		return TYPE;
 	}
-	
+
 	public double getLatitude() {
 		return latitude;
 	}
-	
+
 	public double getLongitude() {
 		return longitude;
 	}

@@ -12,13 +12,13 @@ import novoda.bookation.gae.shared.UserRegistry;
 import org.appengine.commons.dao.PMF;
 
 public class JdoUserRegistryDao implements UserRegistryDao {
-	
+
 	private static final Logger log = Logger.getLogger(JdoUserRegistryDao.class.getName());
 
 	protected PersistenceManager getPM() {
 		return PMF.get().getPersistenceManager();
 	}
-	
+
 	@Override
 	public void deregister(String account) {
 		PersistenceManager pm = getPM();
@@ -33,7 +33,7 @@ public class JdoUserRegistryDao implements UserRegistryDao {
         } catch(JDOOptimisticVerificationException e) {
             log.severe("JDOOptimisticVerificationException " + e.getMessage());
             throw new RuntimeException("JDOOptimisticVerificationException", e);
-        } finally {      
+        } finally {
             if (pm.currentTransaction().isActive()) {
                 pm.currentTransaction().rollback();
             }
@@ -77,7 +77,7 @@ public class JdoUserRegistryDao implements UserRegistryDao {
         } catch(JDOOptimisticVerificationException e) {
             log.severe("JDOOptimisticVerificationException " + e.getMessage());
             throw new RuntimeException("JDOOptimisticVerificationException", e);
-        } finally {      
+        } finally {
             if (pm.currentTransaction().isActive()) {
                 pm.currentTransaction().rollback();
             }

@@ -10,12 +10,12 @@ import java.net.URL;
 import java.util.logging.Logger;
 
 public class XtifyService {
-	
+
 	private static final Logger logger = Logger.getLogger(XtifyService.class.getSimpleName());
-	
+
 	public void sendMessage(String xtifyId) {
 		String urlString = "http://notify.xtify.com/api/1.0/SdkNotification";
-        String content = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + 
+        String content = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
                 "<sdk-notification>" +
                 	"<actionType>LAUNCH_APP</actionType>" +
                 	"<appId>27d70c2b-4982-48f2-885e-e8230ba3df00</appId>" +

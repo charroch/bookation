@@ -19,32 +19,32 @@ public class Bookation implements Serializable {
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
 	private Long id;
-	
+
 	@Persistent
 	private Date modified;
-	
+
 	@Persistent
 	private Date created;
-	
+
 	@Persistent
 	private String title;
-	
+
 	@Persistent
 	private String description;
-	
+
 	@Persistent
 	private Double latitude;
-	
+
 	@Persistent
 	private Double longitude;
-	
+
 	@Persistent
 	private String tag;
-	
+
 	@IsHidden
 	@Persistent
 	private String email;
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -116,5 +116,5 @@ public class Bookation implements Serializable {
 	public String getEmail() {
 		return email;
 	}
-		
+
 }
